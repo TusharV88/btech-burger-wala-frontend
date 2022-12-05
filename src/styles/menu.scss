@@ -1,0 +1,139 @@
+@import "colors";
+
+#menu {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  padding: 4rem;
+
+  > h1 {
+    font-size: 4rem;
+    text-align: center;
+    padding: 2rem;
+    letter-spacing: 0.2rem;
+    font-family: "Tenor Sans", cursive;
+  }
+
+  .cards-heading {
+    .burger-header {
+      font-size: 2.5rem;
+      letter-spacing: 0.2rem;
+      font-family: "Roboto", cursive;
+    }
+
+    > span {
+      width: 50%;
+      background-color: green;
+      padding: 3px;
+      border-radius: 0 10px 10px 0;
+      display: block;
+      margin-bottom: 3rem;
+    }
+    .red-bar {
+      background-color: red;
+    }
+  }
+
+  .nonveg-header {
+    margin-top: 2rem;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}
+
+.menuCard {
+  background-color: white;
+  width: 30%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.495);
+  margin: 2rem;
+
+  > div {
+    border-radius: 20px 20px 0 0;
+    background-color: $red;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    height: 4rem;
+    justify-content: space-between;
+
+    > img {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 5px;
+    }
+  }
+
+  > main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > img {
+      height: 15rem;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    > h5 {
+      font-size: 1.8rem;
+    }
+
+    > p {
+      padding: 1rem 0;
+      letter-spacing: 2px;
+      line-height: 1.4rem;
+    }
+
+    > button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: $red;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      margin-top: 1rem;
+      font-family: "Roboto", cursive;
+      letter-spacing: 2px;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $reddark;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #menu {
+    > div {
+      flex-direction: column;
+    }
+    > h1 {
+      font-size: 3rem;
+    }
+
+    .cards-heading {
+      .burger-header {
+        font-size: 1.6rem;
+      }
+
+      > span {
+        width: 100%;
+      }
+    }
+
+    .menuCard {
+      width: 100%;
+      margin: 1rem 0;
+    }
+  }
+}
