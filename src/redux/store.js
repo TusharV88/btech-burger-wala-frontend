@@ -17,4 +17,4 @@ const store = configureStore({
 
 export default store;
 
-export const server = "http:localhost:4000/api/v1";
+export const server = "https://hoodie-rabbit.cyclic.app/api/v1";
