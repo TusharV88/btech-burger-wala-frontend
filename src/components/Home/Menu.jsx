@@ -34,13 +34,13 @@ const Menu = () => {
       case 3:
         dispatch({ type: "cornAndCheeseBurgerIncrement" });
         dispatch({ type: "calculatePrice" });
-        toast.success("Veggie Burger added to cart");
+        toast.success("corn And Cheese Burger added to cart");
         break;
 
       case 4:
         dispatch({ type: "veggieBurgerIncrement" });
         dispatch({ type: "calculatePrice" });
-        toast.success("Corn and Cheese Burger added to cart");
+        toast.success("veggie Burger added to cart");
         break;
 
       case 5:
