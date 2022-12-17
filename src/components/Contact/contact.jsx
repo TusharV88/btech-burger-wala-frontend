@@ -34,7 +34,7 @@ const contact = () => {
 
 
     return (
-        <section className='contact'>
+        <section className='contact anima'>
             <motion.form
                 initial={{ x: '-100vw', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -46,7 +46,7 @@ const contact = () => {
                 <input required type='email' name='name' id='name' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
 
                 <textarea required cols='30' rows='10' placeholder='Message...' style={{ resize: "none" }} value={msg} onChange={(e) => setMsg(e.target.value)}></textarea>
-                <button type='submit'>Send</button>
+                <button type='submit' className='anima'>Send</button>
             </motion.form>
             <motion.div className='formBorder'
                 initial={{ x: '100vw', opacity: 0 }}

@@ -1,6 +1,54 @@
 import { createReducer } from '@reduxjs/toolkit';
 
 export const authReducer = createReducer({}, {
+    loginRequest: (state) => {
+        state.loading = true;
+    },
+    loginSuccess: (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+    },
+    loginFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.isAuthenticated = false;
+    },
+    registerRequest: (state) => {
+        state.loading = true;
+    },
+    registerSuccess: (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+    },
+    registerFail: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.isAuthenticated = false;
+    },
+    forgotPasswordRequest: (state) => {
+        state.loading = true;
+    },
+    forgotPasswordSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    forgotPasswordFail: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+    resetPasswordRequest: (state) => {
+        state.loading = true;
+    },
+    resetPasswordSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    resetPasswordFail: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
     loadUserRequest: (state) => {
         state.loading = true;
     },

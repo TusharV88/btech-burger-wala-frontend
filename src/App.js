@@ -21,6 +21,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadUser } from './redux/actions/userAction';
 import toast, { Toaster } from 'react-hot-toast'
 import { ProtectedRoute } from 'protected-route-react';
+import Register from './components/Register/Register';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 
 import './styles/App.scss';
@@ -34,7 +37,6 @@ import './styles/cart.scss';
 import './styles/shipping.scss';
 import './styles/confirmOrder.scss';
 import './styles/paymentsuccess.scss';
-import './styles/login.scss';
 import './styles/profile.scss';
 import './styles/table.scss';
 import './styles/orderDetails.scss';
@@ -76,7 +78,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-
+        <Route path="/register" element={isAuthenticated ? <Home/> : <Register />} />
+        <Route path="/forgot/password" element={isAuthenticated ? <Home/> : <ForgotPassword />} />
+        <Route path="/password/reset/:token" element={isAuthenticated ? <Home/> : <ResetPassword/>} />
         <Route
           path="/login"
           element={
@@ -108,7 +112,7 @@ function App() {
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/orders" element={<Orders />} />
         </Route>
-
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

@@ -11,7 +11,6 @@ const Users = () => {
         disptach(getAdminUsers());
     }, [disptach]);
 
-
     return (
         <section className="tableClass">
             {loading === false ? <main>
@@ -32,7 +31,7 @@ const Users = () => {
                                 <td>#{i._id}</td>
                                 <td>{i.name}</td>
                                 <td>
-                                    <img src={i.photo} alt="User" />
+                                    <img src={i.avatar.url} alt="User" />
                                 </td>
                                 <td>{i.role}</td>
                                 <td>{i.createdAt.split("T")[0]}</td>
