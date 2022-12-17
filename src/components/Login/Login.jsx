@@ -1,32 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/userAction";
-import { toast } from "react-hot-toast";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const dispatch = useDispatch();
-    const { loading, error } = useSelector(state => state.auth);
+    const { loading } = useSelector(state => state.auth);
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(loginUser(email, password));
     };
-
-    useEffect(() => {
-        if (error) {
-            toast.error(error);
-            dispatch({
-                type: "clearError",
-            });
-        }
-    }, [error, dispatch]);
-
 
     return (
         <div className="anima login">

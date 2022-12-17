@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./ResetPassword.css"
 import Logo from "../../assets/logo.png";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-hot-toast';
 import { resetPasswordUser } from '../../redux/actions/userAction';
 
 const ResetPassword = () => {
@@ -11,20 +10,12 @@ const ResetPassword = () => {
   
   const params = useParams();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.auth);
+  const { loading } = useSelector(state => state.auth);
 
   const submitHandler = (e) => {  
     e.preventDefault();
     dispatch(resetPasswordUser(params.token, newPassword));
 }
-
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-      dispatch({ type: "clearError" });
-    }
-  }, [error, dispatch]);
-
 
   return (
     <div className="restPassword">
