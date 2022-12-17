@@ -46,19 +46,13 @@ import './styles/about.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const { error, message, isAuthenticated, user } = useSelector((state) => state.auth);
+  const { message, isAuthenticated, user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(loadUser());
   }, [dispatch]);
 
   useEffect(() => {
-    if (error) {
-      toast.error(error);
-      dispatch({
-        type: "clearError",
-      });
-    }
     if (message) {
       toast.success(message);
       dispatch({
@@ -66,7 +60,7 @@ function App() {
       });
     }
 
-  }, [dispatch, error, message]);
+  }, [dispatch, message]);
 
 
   return (

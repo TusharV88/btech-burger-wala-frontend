@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import Avatar from '@mui/material/Avatar';
 import './Register.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/actions/userAction';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -13,7 +14,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
 
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.auth);
+    const { loading, error } = useSelector((state) => state.auth);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -32,6 +33,17 @@ const Register = () => {
         e.preventDefault();
         dispatch(registerUser(name, mail, password, avatar));
     }
+
+    useEffect(() => {
+        if (error) {
+            toast.error(error);
+            dispatch({
+                type: "clearError",
+            });
+        }
+    }, [error, dispatch]);
+
+
 
     return (
         <div className="register anima">

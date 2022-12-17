@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../../assets/logo.png';
 import { forgotPasswordUser } from '../../redux/actions/userAction';
@@ -8,12 +9,20 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('');
 
     const dispatch = useDispatch();
-    const { loading } = useSelector(state => state.auth);
+    const { loading, error } = useSelector(state => state.auth);
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(forgotPasswordUser(email));
     }
+
+    useEffect(() => {
+        if (error) {
+            toast.error(error);
+            dispatch({ type: "clearError" });
+        }
+    }, [error, dispatch]);
+
 
     return (
         <div className="forgotPassword anima">
