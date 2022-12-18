@@ -11,7 +11,7 @@ const ResetPassword = () => {
 
   const params = useParams();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.auth);
+  const { error } = useSelector(state => state.auth);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ const ResetPassword = () => {
             Login
           </Link>
         </div>
-        <button type="submit" className='btn' disabled={loading}>Reset Password</button>
+        <button type="submit" className='btn'>Reset Password</button>
       </form>
     </div>
   )

@@ -14,7 +14,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
 
     const dispatch = useDispatch();
-    const { loading, error } = useSelector((state) => state.auth);
+    const { error } = useSelector((state) => state.auth);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -98,7 +98,7 @@ const Register = () => {
                         Login Now
                     </Link>
                 </div>
-                <button type="submit" className='btn' disabled={loading}>
+                <button type="submit" className='btn'>
                     Sign Up
                 </button>
             </form>

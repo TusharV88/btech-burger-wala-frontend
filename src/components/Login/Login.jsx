@@ -11,7 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const dispatch = useDispatch();
-    const { loading, error } = useSelector(state => state.auth);
+    const { error } = useSelector(state => state.auth);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -61,7 +61,7 @@ const Login = () => {
                         NewUser?
                     </Link>
                 </div>
-                <button type="submit" className='btn' disabled={loading}>Login</button>
+                <button type="submit" className='btn'>Login</button>
             </form>
         </div>
     );

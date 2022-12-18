@@ -9,7 +9,7 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('');
 
     const dispatch = useDispatch();
-    const { loading, error } = useSelector(state => state.auth);
+    const { error } = useSelector(state => state.auth);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -39,7 +39,7 @@ const ForgotPassword = () => {
                     <span>Email</span>
                     <i></i>
                 </div>
-                <button type="submit" className='btn' disabled={loading}>Send Token</button>
+                <button type="submit" className='btn'>Send Token</button>
             </form>
         </div>
     )
