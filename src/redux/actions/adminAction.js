@@ -5,7 +5,7 @@ export const getAdminStats = () => async (dispatch) => {
     try {
         dispatch({ type: "getDashboardStatsRequest" });
 
-        const { data } = await axios.get(`${server}/admin/stats`, {
+        const { data } = await axios.get(`${server}/api/v1/admin/stats`, {
             withCredentials: true,
         });
 
@@ -22,7 +22,7 @@ export const getAdminUsers = () => async (dispatch) => {
     try {
         dispatch({ type: "getAdminUsersRequest" });
 
-        const { data } = await axios.get(`${server}/admin/users`, {
+        const { data } = await axios.get(`${server}/api/v1/admin/users`, {
             withCredentials: true,
         });
 
@@ -39,7 +39,7 @@ export const getAdminOrders = () => async (dispatch) => {
     try {
         dispatch({ type: "getAdminOrdersRequest" });
 
-        const { data } = await axios.get(`${server}/admin/orders`, {
+        const { data } = await axios.get(`${server}/api/v1/admin/orders`, {
             withCredentials: true,
         });
 
@@ -56,7 +56,7 @@ export const processOrder = (id) => async (dispatch) => {
     try {
         dispatch({ type: "processOrderRequest" });
 
-        const { data } = await axios.get(`${server}/admin/order/${id}`, {
+        const { data } = await axios.get(`${server}/api/v1/admin/order/${id}`, {
             withCredentials: true,
         });
 

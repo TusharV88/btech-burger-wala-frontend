@@ -6,7 +6,7 @@ export const registerUser = (name, email, password, avatar) => async (dispatch) 
         dispatch({ type: "registerRequest" });
 
         const { data } = await axios.post(
-            `${server}/register`,
+            `${server}/api/v1/register`,
             { name, email, password, avatar },
             {
                 headers: {
@@ -35,7 +35,7 @@ export const loginUser = (email, password) => async (dispatch) => {
         });
 
         const { data } = await axios.post(
-            `${server}/login`,
+            `${server}/api/v1/login`,
             { email, password },
             {
                 headers: {
@@ -64,7 +64,7 @@ export const forgotPasswordUser = (email) => async (dispatch) => {
         });
 
         const { data } = await axios.post(
-            `${server}/forgot/password`,
+            `${server}/api/v1/forgot/password`,
             {
                 email,
             },
@@ -95,7 +95,7 @@ export const resetPasswordUser = (token, password) => async (dispatch) => {
         });
 
         const { data } = await axios.put(
-            `${server}/password/reset/${token}`,
+            `${server}/api/v1/password/reset/${token}`,
             {
                 password,
             },
@@ -126,7 +126,7 @@ export const loadUser = () => async (dispatch) => {
             type: "loadUserRequest",
         });
 
-        const { data } = await axios.get(`${server}/profile`, {
+        const { data } = await axios.get(`${server}/api/v1/profile`, {
             withCredentials: true,
         });
 
@@ -149,7 +149,7 @@ export const logout = () => async (dispatch) => {
             type: "logoutRequest",
         });
 
-        const { data } = await axios.get(`${server}/logout`, {
+        const { data } = await axios.get(`${server}/api/v1/logout`, {
             withCredentials: true,
         });
 
@@ -171,7 +171,7 @@ export const getContact = (name, email, message) => async (dispatch) => {
             type: "contactRequest",
         });
 
-        const { data } = await axios.post(`${server}/contact`, {
+        const { data } = await axios.post(`${server}/api/v1/contact`, {
             name,
             email,
             message,

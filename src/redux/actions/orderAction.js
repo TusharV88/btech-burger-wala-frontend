@@ -18,7 +18,7 @@ export const createOrder =
                 });
 
                 const { data } = await axios.post(
-                    `${server}/placeorder`,
+                    `${server}/api/v1/placeorder`,
                     {
                         shippingInfo,
                         orderItems,
@@ -59,7 +59,7 @@ export const paymentVerification =
                 });
 
                 const { data } = await axios.post(
-                    `${server}/paymentverification`,
+                    `${server}/api/v1/paymentverification`,
                     {
                         razorpay_payment_id,
                         razorpay_order_id,
@@ -91,7 +91,7 @@ export const getMyOrders = () => async (dispatch) => {
     try {
         dispatch({ type: "getMyOrdersRequest" });
 
-        const { data } = await axios.get(`${server}/myorders`, {
+        const { data } = await axios.get(`${server}/api/v1/myorders`, {
             withCredentials: true,
         });
 
@@ -105,7 +105,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: "getOrderDetailsRequest" });
 
-        const { data } = await axios.get(`${server}/order/${id}`, {
+        const { data } = await axios.get(`${server}/api/v1/order/${id}`, {
             withCredentials: true,
         });
 

@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://btech-burger-wala-server.onrender.com/api/v1"
+  "proxy": "https://btech-burger-wala-server.onrender.com"
 }
