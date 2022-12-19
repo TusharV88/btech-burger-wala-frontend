@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const [name, setName] = useState("");
-    const [mail, setMail] = useState("");
+    const [email, setEmail] = useState("");
     const [avatar, setAvatar] = useState("");
     const [password, setPassword] = useState("");
 
@@ -31,7 +31,7 @@ const Register = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(registerUser(name, mail, password, avatar));
+        dispatch(registerUser(name, email, password, avatar));
     }
 
     useEffect(() => {
@@ -75,8 +75,8 @@ const Register = () => {
                     <input
                         type="mail"
                         required
-                        value={mail}
-                        onChange={(e) => setMail(e.target.value)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <span>Email</span>
                     <i></i>

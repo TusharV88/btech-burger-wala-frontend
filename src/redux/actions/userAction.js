@@ -16,9 +16,15 @@ export const registerUser = (name, email, password, avatar) => async (dispatch) 
             }
         );
 
-        dispatch({ type: "registerSuccess", payload: data.user });
+        dispatch({
+            type: "registerSuccess",
+            payload: data.user
+        });
     } catch (error) {
-        dispatch({ type: "registerFail", payload: error.response.data.message });
+        dispatch({
+            type: "registerFail",
+            payload: error.response.data.message
+        });
     }
 };
 
